@@ -44,7 +44,7 @@ class FeedBackApp(QMainWindow):
         
         self.closebtn = self.findChild(QPushButton, "close")
         self.min = self.findChild(QPushButton, "min")
-        self.restor = self.findChild(QPushButton, "restore")
+        self.restor = self.findChild(QPushButton, "restor")
         self.comment = self.findChild(QTextEdit, "comment")
         self.send = self.findChild(QPushButton, "send")
         self.name = self.findChild(QLineEdit, "name")
@@ -63,8 +63,11 @@ class FeedBackApp(QMainWindow):
         self.star4.stateChanged.connect(self.star_4)
         self.star5.stateChanged.connect(self.star_5)
         self.send.clicked.connect(self.grab_feedback)
-
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
+        self.min.clicked.connect(self.minimiz_application)
+        self.restor.clicked.connect(self.full_screen)
+        self.closebtn.clicked.connect(self.close_application
+                                             )
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
         self.full_screen_mod = False
